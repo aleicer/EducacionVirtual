@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EducaEnCasa.Models.Acudientes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Acudientes</h1>
+
+
+    <a class="btn btn-secondary" style="background:#0a9396;text-decoration:none;color:#e9d8a6" asp-action="Create">Ingresar Nuevo Acudiente</a>
+
+
+<table class="table table-hover" border="1" style="background: rgba(148,210,189,0.8)">
+    <thead>
+        <tr style="background: rgba(10,147,150,0.8)">
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.apellido)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="table-active">
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.direccion)
+            </td>
+            <td>
+                
+                    <a class="btn btn-secondary" style="background:#0a9396;text-decoration:none;color:#e9d8a6" asp-action="Edit" asp-route-id="@item.id">Editar</a>
+                
+                |
+                
+                    <a class="btn btn-secondary" style="background:#0a9396;text-decoration:none;color:#e9d8a6" asp-action="Details" asp-route-id="@item.id">Detalles</a>
+                
+                |
+                
+                    <a class="btn btn-secondary" style="background:#0a9396;text-decoration:none;color:#e9d8a6" asp-action="Delete" asp-route-id="@item.id">Eliminar</a>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

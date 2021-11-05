@@ -1,0 +1,60 @@
+﻿@*@model EducacionVirtual.Models.evaluaciones.ActividadesController*@
+@using EducacionVirtual.Models.evaluaciones;
+@{
+    ViewData["Title"] = "Resolver";
+    
+}
+<div class="text-center">
+    <h1>Resolver Actividad</h1>
+    <h3>@ViewBag.mensaje</h3>
+</div>
+<div style="background: linear-gradient(#a7eaee, #d6e2b8)"  >
+    @using (Html.BeginForm())
+    {
+        @foreach (Preguntas item in ViewBag.ListaPreguntas)
+        {
+            <table class="table-bordered ">
+                <tr class="border-2">
+                    <td>@item.Id ) @item.Descripcion</td>
+                </tr>
+                <tr>
+                    <td class="border-3">
+                        <input id="Opcion1" type="radio" name="@item.Opcion1" class="rb" value=" @item.Opcion1"> @item.Opcion1 |
+                        <input id="Opcion2" type="radio" name="@item.Opcion2" class="rb" value=" @item.Opcion2"> @item.Opcion2 |
+                        <input id="Opcion3" type="radio" name="@item.Opcion3" class="rb" value=" @item.Opcion3"> @item.Opcion3 |
+                        <input id="Opcion4" type="radio" | name="@item.Opcion4" class="rb" value=" @item.Opcion4"> @item.Opcion4 |
+                        <label name="@item.Id" class="rb" style="display:none; color: red; font: bold;">@item.Solucion</label>
+                    </td>
+                </tr>
+            </table>
+        }
+        <br />
+        <button id="but1" type="button" value="submit" class="btn-success">Enviar</button>
+        <label id="Ibluseranswer"></label>
+    }
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#but1").click(function () {
+            $(".rb").show();
+            $(".rb").attr("disabled", true);
+        });
+    });
+    @*function Resolver() {
+        document.getElementById("Ibluseranswer").innerHTML = "";
+        var result = document.getElementByTagName('input');
+        for (i = 0; i < result.length; i++) {
+            if (result[i].type == "id") {
+                if (result[i] == HTMLLabelElement.getElementByTagName('name')) {
+                    @correctas++;
+                    return @correctas;
+                }
+            }
+        }
+    }*@
+
+</script>

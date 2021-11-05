@@ -1,0 +1,47 @@
+﻿@model EducacionVirtual.Models.evaluaciones.Actividades
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Actividades</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        
+        <form asp-action="Create">
+            <img src="~/imagenes/crear_actividad.jpg" height="200" width="500"/>
+            <br /><br />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TipoEvaluacion" class="control-label"></label>
+                <select asp-for="TipoEvaluacion" class="form-control">
+                    <option value="Quiz">Quiz</option>
+                    <option value="Taller">Taller</option>
+                    <option value="Parcial">Parcial</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreActividad" class="control-label"></label>
+                <input asp-for="NombreActividad" class="form-control" />
+                <span asp-validation-for="NombreActividad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocenteId" class="control-label"></label>
+                <select asp-for="DocenteId" class="form-control" asp-items="ViewBag.DocenteId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

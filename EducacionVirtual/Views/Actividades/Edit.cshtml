@@ -1,0 +1,48 @@
+﻿@model EducacionVirtual.Models.evaluaciones.Actividades
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Actividades</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="TipoEvaluacion" class="control-label"></label>
+                <select asp-for="TipoEvaluacion" class="form-control">
+                    <option value="Quiz">Quiz</option>
+                    <option value="Taller">Taller</option>
+                    <option value="Parcial">Parcial</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreActividad" class="control-label"></label>
+                <input asp-for="NombreActividad" class="form-control" />
+                <span asp-validation-for="NombreActividad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocenteId" class="control-label"></label>
+                <select asp-for="DocenteId" class="form-control" asp-items="ViewBag.DocenteId"></select>
+                <span asp-validation-for="DocenteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+            <img src="~/imagenes/editar_actividad.jpg" height="400" width="600" />
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

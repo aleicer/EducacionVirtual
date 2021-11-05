@@ -1,0 +1,71 @@
+﻿@model EducacionVirtual.Models.evaluaciones.Preguntas
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear</h1>
+
+<h4>Pregunta</h4>
+<hr />
+
+<div class="row" style="background: linear-gradient(#c5d309c2, #53d309b6)">
+    <div class="col-md-4 interrogacion">
+        <img src="~/imagenes/crear_pregunta.jpg" align="right" width="300" />
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ActividadID" class="control-label">Seleccione a que Actividad pertenece la pregunta</label>
+                <select asp-for="ActividadID" class="form-control" asp-items="ViewBag.ActividadesID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Opcion1" class="control-label"></label>
+                <input asp-for="Opcion1" class="form-control" />
+                <span asp-validation-for="Opcion1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Opcion2" class="control-label"></label>
+                <input asp-for="Opcion2" class="form-control" />
+                <span asp-validation-for="Opcion2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Opcion3" class="control-label"></label>
+                <input asp-for="Opcion3" class="form-control" />
+                <span asp-validation-for="Opcion3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Opcion4" class="control-label"></label>
+                <input asp-for="Opcion4" class="form-control" />
+                <span asp-validation-for="Opcion4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Solucion" class="control-label"></label>
+                <select asp-for="Solucion" class="form-select">
+                    <option value="Opcion1">Opcion 1</option>
+                    <option value="Opcion2">Opcion 2</option>
+                    <option value="Opcion3">Opcion 3</option>
+                    <option value="Opcion4">Opcion 4</option>
+                </select>
+            </div>
+            <br /><br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

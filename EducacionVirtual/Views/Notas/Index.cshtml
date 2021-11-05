@@ -1,0 +1,67 @@
+﻿@model IEnumerable<EducacionVirtual.Models.evaluaciones.Notas>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Notas</h1>
+
+<button type="button" class="btn btn-success">
+    <a style="text-decoration:none" asp-action="Create">Ingresar nota manual</a>
+</button>
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaPresentacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstudianteID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocenteID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoActividadID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaPresentacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estudiantes.NombreCompletoE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Docentes.NombreCompletoD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Actividades.DetalleActividad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nota)
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline-secondary">
+                    <a style="text-decoration:none" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                </button>
+                <button type="button" class="btn btn-outline-info">
+                    <a style="text-decoration:none"  asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                </button>
+                <button type="button" class="btn btn-outline-danger">
+                    <a style="text-decoration:none" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </button>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

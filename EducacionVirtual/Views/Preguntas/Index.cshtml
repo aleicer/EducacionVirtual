@@ -1,0 +1,101 @@
+﻿@model IEnumerable<EducacionVirtual.Models.evaluaciones.Preguntas>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Preguntas</h1>
+
+<p>
+    <button type="button" class="btn btn-outline-success">
+        <a style="text-decoration: none" asp-action="Create">Crear nueva pregunta</a>
+    </button>
+</p>
+<div class="interrogacion" >
+    <img src="~/imagenes/signo_pregunta.jpg" align="right"/>
+</div>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr style="background-color:cadetblue">
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.ActividadID)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Actividades.TipoEvaluacion)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Actividades.NombreActividad)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Opcion1)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Opcion2)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Opcion3)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Opcion4)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Solucion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+         @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            <tr class="table-info">
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActividadID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Actividades.TipoEvaluacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Actividades.NombreActividad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opcion1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opcion2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opcion3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opcion4)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Solucion)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning">
+                        <a style="text-decoration:none" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                    </button>
+                    <button type="button" class="btn btn-outline-info">
+                        <a style="text-decoration:none;" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                    </button>
+                    <button type="button" class="btn btn-outline-danger">
+                        <a style="text-decoration:none;" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                    </button>
+                </td>
+            </tr>
+        }
+            
+       
+
+
+    </tbody>
+</table>

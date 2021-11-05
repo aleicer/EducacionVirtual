@@ -1,0 +1,61 @@
+﻿@model IEnumerable<EducacionVirtual.Models.evaluaciones.Actividades>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Actividades</h1>
+
+<button type="button" class="btn btn-outline-success">
+    <a style="text-decoration: none;" asp-action="Create">Crear nueva actividad</a>
+</button>
+    
+<div class="interrogacion">
+    <img src="~/imagenes/actividad.jpg" align="right" />
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.TipoEvaluacion)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.NombreActividad)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Docente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="table-success">
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoEvaluacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreActividad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Docente.NombreCompletoD)
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline-warning">
+                    <a style="text-decoration: none;" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                </button>
+                <button type="button" class="btn btn-outline-info">
+                    <a style="text-decoration: none;" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                </button>
+                <button type="button" class="btn btn-outline-danger">
+                    <a style="text-decoration: none;" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </button>
+                <button type="button" class="btn btn-outline-dark">
+                    <a style="text-decoration: none;" asp-action="Resolver" asp-route-id="@item.Id" name="actividadID">Resolver</a>
+                </button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

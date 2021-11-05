@@ -1,0 +1,91 @@
+﻿@model IEnumerable<EducaEnCasa.Models.Estudiantes>
+
+@{
+    ViewData["Title"] = "Lista de estudiantes";
+}
+
+<h1>Estudiantes</h1>
+
+<button type="button" class="btn btn-primary"><font style="color:white;>"<a asp-action="Create">Ingresar Nuevo Estudiante</a></font></button>
+<table class="table" border="2">
+    <caption>Listado de estudiantes</caption>
+    <thead>
+        <tr class="table-danger">
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tarjetaIdentidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.grado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Acudiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Docente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="table-success">
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tarjetaIdentidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.grado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Acudiente.nombre) @Html.DisplayFor(modelItem => item.Acudiente.apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Docente.nombre) @Html.DisplayFor(modelItem => item.Docente.apellido)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning btn-sm">
+                        <a asp-action="Edit" asp-route-id="@item.id">Editar</a>
+                    </button>
+                    |
+                    <button type="button" class="btn btn-outline-secondary btn-sm">
+                        <a asp-action="Details" asp-route-id="@item.id">Detalles</a>
+                    </button>
+                    |
+                    <button type="button" class="btn btn-outline-danger btn-sm">
+                        <a asp-action="Delete" asp-route-id="@item.id">Eliminar</a>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

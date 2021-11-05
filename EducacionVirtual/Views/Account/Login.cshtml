@@ -1,0 +1,40 @@
+﻿@model EducacionVitual.ViewsModels.LoginViewModel
+@{ ViewData["Title"] = "Login"; }
+
+<h1 style="text-align: center">Login</h1>
+<body class="body_login">
+    <div class="row contenedor">
+        <div class="col-md-12">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="elemento">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Correo" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="elemento">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" placeholder="Contraseña" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="elemento">
+                    <div class="custom-control custom-checkbox">
+                        <input asp-for="RememberMe" type="checkbox" class="custom-control-input">
+                        <label class="custom-control-label" asp-for="RememberMe">@Html.DisplayNameFor(m => m.RememberMe)</label>
+                    </div>
+
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+                <div class="elemento">
+                    <a asp-controller="Account" asp-action="Register">Registrarce</a>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</body>
+
+

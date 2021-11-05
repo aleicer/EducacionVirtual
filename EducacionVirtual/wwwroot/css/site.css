@@ -1,0 +1,96 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+html {
+    height: 100%;
+}
+title {
+    color: #001219;
+}
+body{
+    margin: 0;
+}
+footer {
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+}
+
+.img_index {
+    background-image: url("../imagenes/index_mod.png");
+    background-repeat: no-repeat;
+    height: fit-content;
+    max-width: 100%;
+    height: auto;
+}
+
+/*estilos para el login*/
+.body_login {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#E9D8A6, #EE9B00);
+}
+    .contenedor {
+    margin: 50px auto;
+    width: 400px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+    .contenedor .elemento label {
+        color: #fff;
+    }
+
+    .contenedor .elemento input {
+        width: 100%;
+        padding: 10px 0;
+        color: #fff;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #fff;
+        margin-bottom: 30px;
+    }
+
+        .contenedor .elemento input[type="submit"] {
+            background-color: #f72585;
+            border: none;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 15px;
+            margin-top: 30px;
+        }
+/*========================================*/
+.interrogacion {
+    position: inherit;
+}
+
+    .interrogacion img {
+        position: absolute;
+        bottom: 10px;
+        float: right;
+        top: 250px;
+        right: 0px;
+        width: 300px;
+        animation: movimiento 6s ease-in-out infinite;
+     
+    }
+
+@keyframes movimiento {
+    0% {
+        transform: translateY(10px);
+    }
+
+    25% {
+        transform: translateY(-10px);
+    }
+
+    75% {
+        transform: translateY(10%);
+    }
+}
+
+/*IMAGEN CREAR ACTIVIDAD*/
+

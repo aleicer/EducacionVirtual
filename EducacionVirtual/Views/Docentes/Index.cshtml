@@ -1,0 +1,70 @@
+﻿@model IEnumerable<EducaEnCasa.Models.Docentes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Docentes</h1>
+
+<button type="button" class="btn btn-primary">
+    <a style="text-decoration:none; color:white" asp-action="Create">Crear Nuevo</a>
+</button>
+
+
+<table class="table" border="2">
+    <caption>Listado de Docentes</caption>
+    <thead>
+        <tr class="table-danger">
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nivel_educativo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="table-success">
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nivel_educativo)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning btn-sm">
+                        <a asp-action="Edit" asp-route-id="@item.id">Editar</a>
+                    </button>|
+
+                    <button type="button" class="btn btn-outline-warning btn-sm">
+                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                    </button>|
+                    <button type="button" class="btn btn-outline-warning btn-sm">
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

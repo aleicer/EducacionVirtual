@@ -1,0 +1,52 @@
+﻿@model EducacionVirtual.Models.evaluaciones.Notas
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Eliminar</h1>
+
+<h3>Seguro desea elimiar esta nota?</h3>
+<div style="background: linear-gradient(#f34f4fb6, #f3ac4fb6)">
+    <img src="~/imagenes/eliminar.jpg" align="top" width="150" />
+    <h4>Notas</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaPresentacion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaPresentacion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EstudianteID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Estudiantes.NombreCompletoE)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DocenteID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Docentes.NombreCompletoD)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoActividadID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Actividades.DetalleActividad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nota)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nota)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
